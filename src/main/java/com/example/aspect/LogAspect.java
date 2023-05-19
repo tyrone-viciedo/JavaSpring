@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Aspect
 @Component
-@slf4j
+@Slf4j
 public class LogAspect {
 
 	@Before("execution(* *..*.*UserService.*(..))")
