@@ -13,7 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 @Slf4j
-public class LogAspect {
+
+public class LogAspect{
 
 	@Before("execution(* *..*.*UserService.*(..))")
 	public void startLog(JoinPoint jp) {
