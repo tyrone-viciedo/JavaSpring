@@ -14,7 +14,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 
-
+//セキュリティの設定を行う
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//ログイン不要ページの設定
 		http.authorizeRequests().antMatchers("/login").permitAll()//直リンクOK
 		.antMatchers("/user/signup").permitAll()//直リンクOK
+		.antMatchers("/user/signup/rest").permitAll()
 		.antMatchers("/admin")
 		.hasAuthority("ROLE_ADMIN")//権限指定
 		.anyRequest().authenticated();//それ以外は直リンクNG
@@ -51,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		//ログイン処理
 		http.formLogin().loginProcessingUrl("/login")//ログイン処理のパス(th:actionの部分と一致させる)
-		.loginPage("/login")//ログインページの指定
+		//.loginPage("/login")//ログインページの指定
 		.failureUrl("/login?error")//ログイン失敗時の遷移先
 		.usernameParameter("userId")//ログインページのユーザID(name属性)
 		.passwordParameter("password")//ログインページのパスワード

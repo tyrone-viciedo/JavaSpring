@@ -59,8 +59,8 @@ function deleteUser(){
     }).fail(function(jqXHR,textStatus,errorThrown){
         //ajax失敗時の処理
         alert("ユーザー削除に失敗しました")
-    }).always(function(){
-
+    }).always(function(xhr){
+        alert(xhr.status)
     })
 }
 
